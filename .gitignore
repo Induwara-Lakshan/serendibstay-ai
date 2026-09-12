@@ -1,0 +1,17 @@
+__pycache__/
+*.py[cod]
+
+.venv/
+venv/
+env/
+
+.env
+
+.vscode/
+
+*.log
+
+node_modules/
+
+dist/
+build/
