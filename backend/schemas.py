@@ -7,10 +7,17 @@ class HotelResponse(BaseModel):
     name: str
     address: str | None = None
     description: str | None = None
+
+    district: str
+    accommodation_type: str | None = None
+    registration_no: str | None = None
+    licence_no: str | None = None
+    source: str | None = None
+
     price_per_night: float | None = None
     rating: float | None = None
     available: bool | None = None
-    city_id: int
+    city_id: int | None = None
 
     class Config:
         from_attributes = True

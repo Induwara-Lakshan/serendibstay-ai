@@ -18,9 +18,18 @@ class Hotel(Base):
     name = Column(String, nullable=False)
     address = Column(String)
     description = Column(String)
-    price_per_night = Column(Float)
-    rating = Column(Float)
-    available = Column(Boolean)
+
+    district = Column(String, nullable=False)
+    accommodation_type = Column(String)
+
+    registration_no = Column(String)
+    licence_no = Column(String)
+    source = Column(String, default="Sri Lanka Tourism")
+
+    price_per_night = Column(Float, nullable=True)
+    rating = Column(Float, nullable=True)
+    available = Column(Boolean, default=True)
+
     city_id = Column(Integer, ForeignKey("cities.id"))
 
 

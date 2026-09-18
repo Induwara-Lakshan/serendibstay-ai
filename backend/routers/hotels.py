@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from database import get_db
-from models import Hotel
+from models import Hotel, City
 from schemas import HotelResponse
 
 
@@ -17,30 +17,11 @@ def get_all_hotels(db: Session = Depends(get_db)):
     return db.query(Hotel).all()
 
 
-@router.get("/{hotel_id}", response_model=HotelResponse)
-def get_hotel(hotel_id: int, db: Session = Depends(get_db)):
-
-    hotel = db.query(Hotel).filter(
-        Hotel.id == hotel_id
-    ).first()
-
-    if not hotel:
-        raise HTTPException(
-            status_code=404,
-            detail="Hotel not found"
-        )
-
-    return hotel
-
-
 @router.get("/city/{city_name}", response_model=list[HotelResponse])
 def get_hotels_by_city(
     city_name: str,
     db: Session = Depends(get_db)
 ):
-
-    from models import City
-
     city = db.query(City).filter(
         City.name.ilike(city_name)
     ).first()
@@ -56,3 +37,39 @@ def get_hotels_by_city(
     ).all()
 
     return hotels
+
+
+@router.get("/district/{district_name}", response_model=list[HotelResponse])
+def get_hotels_by_district(
+    district_name: str,
+    db: Session = Depends(get_db)
+):
+    hotels = db.query(Hotel).filter(
+        Hotel.district.ilike(district_name)
+    ).all()
+
+    if not hotels:
+        raise HTTPException(
+            status_code=404,
+            detail="District not found or no hotels available"
+        )
+
+    return hotels
+
+
+@router.get("/{hotel_id}", response_model=HotelResponse)
+def get_hotel(
+    hotel_id: int,
+    db: Session = Depends(get_db)
+):
+    hotel = db.query(Hotel).filter(
+        Hotel.id == hotel_id
+    ).first()
+
+    if not hotel:
+        raise HTTPException(
+            status_code=404,
+            detail="Hotel not found"
+        )
+
+    return hotel
