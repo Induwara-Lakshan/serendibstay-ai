@@ -15,3 +15,8 @@ node_modules/
 
 dist/
 build/
+# Local backup and test files
+backend/old_chat.py
+backend/routers/chat_backup_before_transport.py
+backend/test_hotel_mcp_client.py
+backend/test_transport_mcp.py

@@ -1,9 +1,13 @@
+import os
 import httpx
 from mcp.server import MCPServer
 
 mcp = MCPServer("Sri Lanka Hotel MCP")
 
-API_BASE_URL = "http://127.0.0.1:8001"
+API_BASE_URL = os.getenv(
+    "API_BASE_URL",
+    "http://127.0.0.1:8001"
+)
 
 
 @mcp.tool()
@@ -104,11 +108,13 @@ async def create_booking(
         response.raise_for_status()
         return response.json()
 
+
+
 if __name__ == "__main__":
     mcp.run(
         transport="streamable-http",
-        host="127.0.0.1",
-        port=8002,
+        host="0.0.0.0",
+        port=8002, 
         stateless_http=True,
         json_response=True
     )

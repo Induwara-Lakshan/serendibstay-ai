@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Float, Boolean, Date, ForeignKey
+from sqlalchemy import Column, Integer, String, Float, Boolean, Date, Time, ForeignKey
 from database import Base
 
 
@@ -43,3 +43,66 @@ class Booking(Base):
     check_in = Column(Date)
     check_out = Column(Date)
     status = Column(String)
+
+
+class TransportProvider(Base):
+    __tablename__ = "transport_providers"
+
+    id = Column(Integer, primary_key=True, index=True)
+
+    provider_name = Column(String, nullable=False)
+    phone = Column(String, nullable=False)
+    email = Column(String, nullable=False)
+
+    password_hash = Column(String, nullable=True)
+
+    vehicle_type = Column(String, nullable=False)
+    vehicle_number = Column(String, nullable=False)
+    passenger_capacity = Column(Integer, nullable=False)
+
+    base_district = Column(String, nullable=False)
+
+    approved = Column(Boolean, default=False)
+    available = Column(Boolean, default=True)
+
+
+class ProviderServiceDistrict(Base):
+    __tablename__ = "provider_service_districts"
+
+    id = Column(Integer, primary_key=True, index=True)
+
+    provider_id = Column(
+        Integer,
+        ForeignKey("transport_providers.id"),
+        nullable=False
+    )
+
+    district = Column(String, nullable=False)
+
+
+class TransportRequest(Base):
+    __tablename__ = "transport_requests"
+
+    id = Column(Integer, primary_key=True, index=True)
+    response_token = Column(String, nullable=True, unique=True)
+
+    provider_id = Column(
+        Integer,
+        ForeignKey("transport_providers.id"),
+        nullable=False
+    )
+
+    customer_name = Column(String, nullable=False)
+    customer_email = Column(String, nullable=False)
+    customer_phone = Column(String, nullable=False)
+
+    pickup_location = Column(String, nullable=False)
+    destination = Column(String, nullable=False)
+
+    # Pickup details
+    pickup_date = Column(Date, nullable=False)
+    pickup_time = Column(Time, nullable=False)
+
+    passengers = Column(Integer, nullable=False)
+
+    status = Column(String, default="pending")

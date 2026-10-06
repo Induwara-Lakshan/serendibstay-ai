@@ -1,4 +1,4 @@
-from datetime import date
+from datetime import date, time
 from pydantic import BaseModel
 
 
@@ -37,3 +37,64 @@ class BookingResponse(BookingCreate):
 
     class Config:
         from_attributes = True
+
+
+class TransportProviderCreate(BaseModel):
+    provider_name: str
+    phone: str
+    email: str
+    password: str
+    vehicle_type: str
+    vehicle_number: str
+    passenger_capacity: int
+    base_district: str
+    service_districts: list[str]
+
+class TransportProviderLogin(BaseModel):
+    email: str
+    password: str
+
+class TransportProviderResponse(BaseModel):
+    id: int
+    provider_name: str
+    phone: str
+    email: str
+
+    vehicle_type: str
+    vehicle_number: str
+    passenger_capacity: int
+
+    base_district: str
+    service_districts: list[str] = []
+
+    approved: bool
+    available: bool
+
+    class Config:
+        from_attributes = True
+
+
+class TransportRequestCreate(BaseModel):
+    provider_id: int
+
+    customer_name: str
+    customer_email: str
+    customer_phone: str
+
+    pickup_location: str
+    destination: str
+
+    pickup_date: date
+    pickup_time: time
+
+    passengers: int
+
+
+class TransportRequestResponse(TransportRequestCreate):
+    id: int
+    status: str
+
+    class Config:
+        from_attributes = True
+
+
