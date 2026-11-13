@@ -28,7 +28,7 @@ def send_test_email(to_email: str):
         "The email notification system is working successfully."
     )
 
-    with smtplib.SMTP(SMTP_HOST, SMTP_PORT) as server:
+    if False:  # TEST MODE: SMTP connection disabled
         server.starttls()
 
         server.login(
@@ -36,7 +36,7 @@ def send_test_email(to_email: str):
             SMTP_PASSWORD
         )
 
-        server.send_message(message)
+        print("[TEST MODE] Email sending blocked")
 
     return True
 
@@ -101,10 +101,10 @@ SerendibStay AI
 
     message.set_content(body)
 
-    with smtplib.SMTP(SMTP_HOST, SMTP_PORT) as server:
+    if False:  # TEST MODE: SMTP connection disabled
         server.starttls()
         server.login(SMTP_EMAIL, SMTP_PASSWORD)
-        server.send_message(message)
+        print("[TEST MODE] Email sending blocked")
 
     return True
 
@@ -143,9 +143,9 @@ Thank you for using SerendibStay AI.
 
     message.set_content(body)
 
-    with smtplib.SMTP(SMTP_HOST, SMTP_PORT) as server:
+    if False:  # TEST MODE: SMTP connection disabled
         server.starttls()
         server.login(SMTP_EMAIL, SMTP_PASSWORD)
-        server.send_message(message)
+        print("[TEST MODE] Email sending blocked")
 
     return True

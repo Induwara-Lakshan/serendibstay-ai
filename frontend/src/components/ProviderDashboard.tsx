@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import DriverNavigationMap from "./DriverNavigationMap";
+
 type Provider = {
   id: number;
   provider_name: string;
@@ -58,7 +60,7 @@ function ProviderDashboard({
         const [providerResponse, requestsResponse] =
           await Promise.all([
             fetch(
-              "http://127.0.0.1:8001/transport/providers/me",
+              "http://127.0.0.1:8011/transport/providers/me",
               {
                 headers: {
                   Authorization: `Bearer ${token}`,
@@ -67,7 +69,7 @@ function ProviderDashboard({
             ),
 
             fetch(
-              "http://127.0.0.1:8001/transport/providers/me/requests",
+              "http://127.0.0.1:8011/transport/providers/me/requests",
               {
                 headers: {
                   Authorization: `Bearer ${token}`,
@@ -144,7 +146,7 @@ function ProviderDashboard({
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8001/transport/providers/me/requests/${requestId}/${action}`,
+        `http://127.0.0.1:8011/transport/providers/me/requests/${requestId}/${action}`,
         {
           method: "PATCH",
           headers: {
@@ -224,7 +226,7 @@ function ProviderDashboard({
 
     try {
       const response = await fetch(
-        `http://127.0.0.1:8001/transport/providers/me/availability?available=${newAvailability}`,
+        `http://127.0.0.1:8011/transport/providers/me/availability?available=${newAvailability}`,
         {
           method: "PATCH",
           headers: {
@@ -609,7 +611,51 @@ function ProviderDashboard({
 
                     </div>
                   )}
+                     {request.status === "accepted" && (
+  <div className="request-actions">
+    <button
+      type="button"
+      className="request-accept-button"
+      onClick={() => {
+        const destination = encodeURIComponent(
+          request.pickup_location
+        );
 
+        window.open(
+          `https://www.google.com/maps/dir/?api=1&destination=${destination}&travelmode=driving`,
+          "_blank",
+          "noopener,noreferrer"
+        );
+      }}
+    >
+      📍 Navigate to Pickup
+    </button>
+
+    <button
+      type="button"
+      className="request-accept-button"
+      onClick={() => {
+        const destination = encodeURIComponent(
+          request.destination
+        );
+
+        window.open(
+          `https://www.google.com/maps/dir/?api=1&destination=${destination}&travelmode=driving`,
+          "_blank",
+          "noopener,noreferrer"
+        );
+      }}
+    >
+      🏁 Navigate to Destination
+    </button>
+  </div>
+)}
+{request.status === "accepted" && (
+  <DriverNavigationMap
+    pickupLocation={request.pickup_location}
+    destination={request.destination}
+  />
+)}
                 </div>
               ))}
 

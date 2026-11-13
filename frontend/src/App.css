@@ -3779,3 +3779,1106 @@ body {
     min-width: 760px;
   }
 }
+
+/* =========================================================
+   SERENDIBSTAY AI - ACCESS PORTAL
+   Professional Right Side Drawer
+   ========================================================= */
+
+/* =========================================================
+   HEADER ACTIONS
+   ========================================================= */
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+/* =========================================================
+   PORTAL BUTTON
+   ========================================================= */
+
+.portal-button {
+  position: relative;
+
+  min-height: 42px;
+  padding: 0 18px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  border: 1px solid #0f766e;
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #0f766e,
+      #0d9488
+    );
+
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 6px 16px rgba(15, 118, 110, 0.18);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.portal-button::before {
+  content: "▦";
+
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.portal-button::after {
+  content: "›";
+
+  margin-left: 2px;
+
+  font-size: 17px;
+  line-height: 1;
+
+  opacity: 0.9;
+}
+
+.portal-button:hover {
+  transform: translateY(-2px);
+
+  background:
+    linear-gradient(
+      135deg,
+      #115e59,
+      #0f766e
+    );
+
+  box-shadow:
+    0 9px 22px rgba(15, 118, 110, 0.25);
+}
+
+.portal-button:active {
+  transform: translateY(0);
+}
+
+/* =========================================================
+   DARK PAGE OVERLAY
+   ========================================================= */
+
+.portal-overlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 1000;
+
+  background:
+    rgba(6, 24, 23, 0.48);
+
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+
+  animation:
+    portalOverlayFade 0.25s ease;
+}
+
+@keyframes portalOverlayFade {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   RIGHT SIDE PORTAL DRAWER
+   ========================================================= */
+
+.portal-drawer {
+  position: fixed;
+
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+  z-index: 1001;
+
+  width: min(440px, 92vw);
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 0;
+
+  overflow-y: auto;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #fbfefd 55%,
+      #f5fbfa 100%
+    );
+
+  border-left:
+    1px solid rgba(15, 118, 110, 0.14);
+
+  box-shadow:
+    -24px 0 60px rgba(2, 44, 34, 0.2);
+
+  animation:
+    portalDrawerSlide 0.32s
+    cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes portalDrawerSlide {
+  from {
+    transform: translateX(100%);
+    opacity: 0.8;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Scrollbar */
+
+.portal-drawer::-webkit-scrollbar {
+  width: 6px;
+}
+
+.portal-drawer::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.portal-drawer::-webkit-scrollbar-thumb {
+  background: #b9dcd7;
+
+  border-radius: 20px;
+}
+
+/* =========================================================
+   DRAWER HEADER
+   ========================================================= */
+
+.portal-drawer-header {
+  position: relative;
+
+  padding:
+    34px 32px 28px;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(45, 212, 191, 0.13),
+      transparent 45%
+    ),
+    linear-gradient(
+      145deg,
+      #f8fffd,
+      #ffffff
+    );
+
+  border-bottom:
+    1px solid #deeeeb;
+}
+
+.portal-drawer-header::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 5px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #0f766e,
+      #14b8a6,
+      #2dd4bf
+    );
+}
+
+.portal-label {
+  display: inline-block;
+
+  margin-bottom: 9px;
+
+  color: #0f766e;
+
+  font-size: 10px;
+  font-weight: 900;
+
+  letter-spacing: 1.4px;
+}
+
+.portal-drawer-header h2 {
+  margin: 0 0 8px;
+
+  color: #163b38;
+
+  font-size: 27px;
+  font-weight: 850;
+
+  letter-spacing: -0.5px;
+}
+
+.portal-drawer-header p {
+  max-width: 290px;
+
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   CLOSE BUTTON
+   ========================================================= */
+
+.portal-close-button {
+  width: 40px;
+  height: 40px;
+
+  min-width: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+
+  border: 1px solid #d9e9e6;
+  border-radius: 12px;
+
+  background: #ffffff;
+
+  color: #526967;
+
+  font-family: Arial, sans-serif;
+  font-size: 25px;
+  font-weight: 400;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    all 0.2s ease;
+}
+
+.portal-close-button:hover {
+  background: #ecfdf9;
+
+  border-color: #5eead4;
+
+  color: #0f766e;
+
+  transform: rotate(5deg);
+}
+
+/* =========================================================
+   PORTAL SECTION
+   ========================================================= */
+
+.portal-section {
+  position: relative;
+
+  margin:
+    26px 26px 0;
+
+  padding: 24px;
+
+  display: flex;
+  align-items: flex-start;
+
+  gap: 17px;
+
+  background:
+    rgba(255, 255, 255, 0.98);
+
+  border:
+    1px solid #dbece9;
+
+  border-radius: 19px;
+
+  box-shadow:
+    0 8px 26px rgba(15, 72, 65, 0.065);
+
+  transition:
+    transform 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.portal-section:hover {
+  transform: translateY(-2px);
+
+  border-color: #a7ddd5;
+
+  box-shadow:
+    0 13px 30px rgba(15, 72, 65, 0.1);
+}
+
+/* =========================================================
+   SECTION ICON
+   ========================================================= */
+
+.portal-section-icon {
+  width: 48px;
+  height: 48px;
+
+  min-width: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ecfdf9,
+      #dffaf5
+    );
+
+  border:
+    1px solid #bdebe4;
+
+  font-size: 21px;
+
+  box-shadow:
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.9);
+}
+
+/* =========================================================
+   SECTION CONTENT
+   ========================================================= */
+
+.portal-section-content {
+  flex: 1;
+
+  min-width: 0;
+}
+
+.portal-section-label {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: #0f766e;
+
+  font-size: 9px;
+  font-weight: 900;
+
+  letter-spacing: 1.2px;
+}
+
+.portal-section-content h3 {
+  margin: 0 0 8px;
+
+  color: #183b39;
+
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.portal-section-content p {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 12.5px;
+  line-height: 1.65;
+}
+
+/* =========================================================
+   PORTAL ACTIONS
+   ========================================================= */
+
+.portal-section-actions {
+  margin-top: 20px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+}
+
+.portal-section-actions button {
+  width: 100%;
+  min-height: 45px;
+
+  padding: 0 16px;
+
+  border-radius: 12px;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+/* =========================================================
+   REGISTER PROVIDER BUTTON
+   ========================================================= */
+
+.portal-primary-action {
+  border:
+    1px solid transparent;
+
+  background:
+    linear-gradient(
+      135deg,
+      #0f766e,
+      #0d9488
+    );
+
+  color: #ffffff;
+
+  box-shadow:
+    0 7px 16px
+    rgba(15, 118, 110, 0.18);
+}
+
+.portal-primary-action::after {
+  content: " →";
+
+  margin-left: 5px;
+}
+
+.portal-primary-action:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 22px
+    rgba(15, 118, 110, 0.25);
+}
+
+/* =========================================================
+   PROVIDER LOGIN BUTTON
+   ========================================================= */
+
+.portal-secondary-action {
+  border:
+    1px solid #bde3dd;
+
+  background:
+    #f7fcfb;
+
+  color:
+    #0f766e;
+}
+
+.portal-secondary-action:hover {
+  transform: translateY(-1px);
+
+  background:
+    #ecfdf9;
+
+  border-color:
+    #5eead4;
+
+  box-shadow:
+    0 6px 15px
+    rgba(15, 118, 110, 0.1);
+}
+
+/* =========================================================
+   ADMIN LOGIN BUTTON
+   ========================================================= */
+
+.portal-admin-action {
+  border:
+    1px solid #d9e4e2;
+
+  background:
+    linear-gradient(
+      135deg,
+      #183b39,
+      #244f4b
+    );
+
+  color:
+    #ffffff;
+
+  box-shadow:
+    0 7px 16px
+    rgba(24, 59, 57, 0.16);
+}
+
+.portal-admin-action::after {
+  content: " →";
+
+  margin-left: 5px;
+}
+
+.portal-admin-action:hover {
+  transform: translateY(-2px);
+
+  background:
+    linear-gradient(
+      135deg,
+      #102f2d,
+      #183b39
+    );
+
+  box-shadow:
+    0 10px 22px
+    rgba(24, 59, 57, 0.22);
+}
+
+/* =========================================================
+   DIVIDER
+   ========================================================= */
+
+.portal-divider {
+  display: none;
+}
+
+/* =========================================================
+   PORTAL FOOTER
+   ========================================================= */
+
+.portal-drawer-footer {
+  margin-top: auto;
+
+  padding:
+    28px 30px 30px;
+
+  text-align: center;
+}
+
+.portal-drawer-footer::before {
+  content: "";
+
+  display: block;
+
+  width: 100%;
+  height: 1px;
+
+  margin-bottom: 22px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #d5e8e4,
+      transparent
+    );
+}
+
+.portal-drawer-footer span {
+  display: block;
+
+  margin-bottom: 5px;
+
+  color: #52706d;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 0.3px;
+}
+
+.portal-drawer-footer p {
+  margin: 0;
+
+  color: #94a3b8;
+
+  font-size: 11px;
+}
+
+/* =========================================================
+   TABLET RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+  .portal-drawer {
+    width: min(420px, 94vw);
+  }
+
+  .portal-drawer-header {
+    padding:
+      30px 25px 24px;
+  }
+
+  .portal-section {
+    margin:
+      20px 20px 0;
+
+    padding: 21px;
+  }
+}
+
+/* =========================================================
+   MOBILE RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .header-actions {
+    gap: 7px;
+  }
+
+  .portal-button {
+    min-height: 38px;
+
+    padding:
+      0 12px;
+
+    font-size: 12px;
+  }
+
+  .portal-button::after {
+    display: none;
+  }
+
+  .portal-button::before {
+    font-size: 13px;
+  }
+
+  .header-actions .clear-button {
+    padding:
+      9px 10px;
+
+    font-size: 12px;
+  }
+
+  .portal-drawer {
+    width: 100%;
+    max-width: 100%;
+
+    border-left: none;
+  }
+
+  .portal-drawer-header {
+    padding:
+      27px 20px 22px;
+  }
+
+  .portal-drawer-header h2 {
+    font-size: 23px;
+  }
+
+  .portal-close-button {
+    width: 38px;
+    height: 38px;
+
+    min-width: 38px;
+  }
+
+  .portal-section {
+    margin:
+      17px 16px 0;
+
+    padding: 19px;
+
+    gap: 14px;
+  }
+
+  .portal-section-icon {
+    width: 43px;
+    height: 43px;
+
+    min-width: 43px;
+
+    border-radius: 13px;
+
+    font-size: 19px;
+  }
+
+  .portal-section-content h3 {
+    font-size: 16px;
+  }
+
+  .portal-section-content p {
+    font-size: 12px;
+  }
+
+  .portal-section-actions {
+    margin-top: 16px;
+  }
+
+  .portal-drawer-footer {
+    padding:
+      25px 20px;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+  .chat-header {
+    gap: 10px;
+  }
+
+  .header-actions {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 5px;
+  }
+
+  .portal-button,
+  .header-actions .clear-button {
+    min-height: 34px;
+
+    padding:
+      0 9px;
+
+    font-size: 10px;
+  }
+
+  .portal-section {
+    flex-direction: column;
+  }
+
+  .portal-section-icon {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* =========================================================
+   FINAL VIEWPORT / SCREENSHOT OVERFLOW FIX
+   ========================================================= */
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+body {
+  min-width: 0;
+  min-height: 0;
+}
+
+.app {
+  width: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.chat-container {
+  width: 100%;
+  max-width: none;
+  height: 100vh;
+  max-height: 100vh;
+  margin: 0;
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.portal-overlay {
+  position: fixed;
+  inset: 0;
+}
+
+.portal-drawer {
+  top: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 100vh;
+  max-height: 100vh;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Route summary and map: scoped styles, other chat and portal UI unaffected */
+.route-result-row { align-items: stretch; }
+.route-result-card {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.85fr) minmax(0, 1.65fr);
+  gap: 0;
+  width: 100%;
+  min-width: 0;
+  background: #fff;
+  border: 1px solid #dcece9;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(15,72,65,.08);
+}
+.route-result-details { padding: 24px; min-width: 0; }
+.route-result-status { display: inline-flex; align-items: center; gap: 8px; font-weight: 750; font-size: 13px; color: #08766e; }
+.route-result-status span { display: grid; place-items: center; width: 24px; height: 24px; background: #dcfce7; border-radius: 50%; }
+.route-result-details h3 { margin: 14px 0 4px; font-size: 19px; color: #143c39; line-height: 1.3; }
+.route-result-subtitle { margin: 0 0 22px; font-size: 12px; color: #64748b; }
+.route-result-stops { position: relative; display: grid; gap: 19px; margin-bottom: 23px; }
+.route-result-stops::before { content: ''; position: absolute; left: 8px; top: 19px; bottom: 19px; border-left: 2px dashed #b6dcd6; }
+.route-result-stop { display: flex; gap: 13px; align-items: flex-start; min-width: 0; }
+.route-result-dot { width: 18px; height: 18px; flex: 0 0 18px; border-radius: 50%; position: relative; z-index: 1; border: 4px solid #ccfbf1; background: #0f766e; }
+.route-result-dot.destination-dot { background: #2563eb; border-color: #dbeafe; }
+.route-result-stop div { min-width: 0; }
+.route-result-stop small { display: block; color: #64748b; font-size: 10px; font-weight: 800; letter-spacing: .08em; margin-bottom: 3px; }
+.route-result-stop strong { display: block; font-size: 13px; color: #183b39; overflow-wrap: anywhere; line-height: 1.45; }
+.route-result-metrics { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 9px; }
+.route-result-metrics > div { background: #f0faf8; border: 1px solid #d9eeea; border-radius: 12px; padding: 12px 10px; min-width: 0; }
+.route-result-metrics span { display: block; font-size: 11px; color: #607975; margin-bottom: 5px; }
+.route-result-metrics strong { display: block; font-size: 17px; color: #0f766e; white-space: nowrap; }
+.route-result-note { font-size: 11px; line-height: 1.5; color: #718096; margin: 14px 0 0; }
+.route-result-map { min-width: 0; min-height: 350px; background: #edf7f5; display: flex; flex-direction: column; }
+.route-result-map > * { flex: 1; min-width: 0; }
+@media (max-width: 850px) {
+  .route-result-card { grid-template-columns: 1fr; }
+  .route-result-map { min-height: 320px; }
+}
+@media (max-width: 650px) {
+  .route-result-row { padding-left: 0; }
+  .route-result-row::before { display: none; }
+  .route-result-details { padding: 18px; }
+  .route-result-map { min-height: 280px; }
+}
+
+
+/* ADMIN HOTEL MANAGEMENT ONLY — scoped to the hotel tab */
+.admin-hotel-scope {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  background: #f3f8f7;
+  color: #173b38;
+  padding: 20px 16px 44px;
+}
+.admin-hotel-scope > div {
+  max-width: 1100px !important;
+  margin: 0 auto !important;
+  padding: 20px !important;
+  color: #173b38 !important;
+  text-align: left;
+}
+.admin-hotel-scope h2,
+.admin-hotel-scope h3 {
+  color: #143c39 !important;
+  font-weight: 800;
+  opacity: 1 !important;
+}
+.admin-hotel-scope p {
+  color: #536b69 !important;
+  opacity: 1 !important;
+}
+.admin-hotel-scope section {
+  background: #ffffff !important;
+  border: 1px solid #dbece8;
+  border-radius: 18px !important;
+  box-shadow: 0 8px 25px rgba(15,72,65,.07);
+  color: #173b38 !important;
+}
+.admin-hotel-scope input {
+  background: #ffffff !important;
+  color: #172e2d !important;
+  border: 1px solid #cbdedb !important;
+  border-radius: 10px !important;
+  min-height: 46px;
+  font-size: 14px;
+  color-scheme: light;
+}
+.admin-hotel-scope input::placeholder {
+  color: #667e7a !important;
+  opacity: 1;
+}
+.admin-hotel-scope input:focus {
+  outline: 2px solid #14b8a6;
+  outline-offset: 1px;
+}
+.admin-hotel-scope table {
+  width: 100%;
+  color: #243f3d !important;
+  font-size: 14px;
+}
+.admin-hotel-scope th {
+  color: #365b57 !important;
+  background: #eff8f5;
+  font-weight: 750;
+}
+.admin-hotel-scope td {
+  color: #334e4b !important;
+  border-bottom: 1px solid #e5efec;
+}
+.admin-hotel-scope tbody tr:hover { background: #f6fbf9; }
+.admin-hotel-scope button[type="submit"] {
+  background: #0f766e !important;
+  color: #ffffff !important;
+  font-weight: 750;
+}
+.admin-hotel-scope button[type="submit"]:hover:not(:disabled) {
+  background: #115e59 !important;
+}
+@media (max-width: 650px) {
+  .admin-hotel-scope { padding: 10px 6px 25px; }
+  .admin-hotel-scope > div { padding: 12px !important; }
+  .admin-hotel-scope section { padding: 16px !important; }
+}
+
+/* =========================================================
+   SERENDIBSTAY MOBILE CHAT RESPONSIVE PATCH
+   Desktop styles and application logic remain unchanged.
+   ========================================================= */
+@media (max-width: 650px) {
+  .app { width: 100%; height: 100dvh; min-height: 100dvh; padding: 0; }
+  .chat-container { width: 100%; max-width: 100%; height: 100dvh; max-height: 100dvh; min-width: 0; border-radius: 0; }
+  .chat-header { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 10px; padding: 12px 14px; min-height: 0; }
+  .chat-header .brand { min-width: 0; gap: 9px; }
+  .chat-header .brand > div:last-child { min-width: 0; }
+  .chat-header .logo { width: 38px; height: 38px; min-width: 38px; border-radius: 12px; font-size: 14px; }
+  .chat-header h1 { font-size: 15px; line-height: 1.2; overflow-wrap: anywhere; }
+  .chat-header p { font-size: 10px; line-height: 1.3; margin-top: 3px; }
+  .chat-header .header-actions { display: flex; flex-direction: column; align-items: stretch; gap: 5px; min-width: 74px; }
+  .chat-header .portal-button, .chat-header .header-actions .clear-button { min-height: 31px; padding: 5px 8px; font-size: 11px; line-height: 1.1; white-space: nowrap; }
+  .chat-header .portal-button::after { display: none; }
+  .quick-actions { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; padding: 10px 12px; overflow-x: hidden; }
+  .quick-actions button { width: 100%; min-width: 0; min-height: 40px; padding: 8px 6px; white-space: normal; overflow-wrap: anywhere; line-height: 1.25; font-size: 12px; border-radius: 12px; }
+  .messages { min-width: 0; min-height: 0; overflow-x: hidden; padding: 14px 12px; }
+  .message-row { min-width: 0; max-width: 100%; }
+  .assistant-row { padding-left: 39px; }
+  .assistant-row::before { width: 30px; height: 30px; }
+  .message.assistant { max-width: 100%; min-width: 0; padding: 12px 13px; font-size: 14px; }
+  .message.user { max-width: 88%; min-width: 0; font-size: 14px; }
+  .message.assistant ul, .message.assistant ol { grid-template-columns: minmax(0,1fr); }
+  .chat-form { min-width: 0; gap: 8px; padding: 10px 12px max(10px,env(safe-area-inset-bottom)); }
+  .chat-form input { min-width: 0; width: 0; flex: 1 1 auto; height: 46px; padding: 0 12px; font-size: 16px; }
+  .chat-form button { min-width: 68px; height: 46px; padding: 0 10px; font-size: 13px; }
+  .route-result-card { grid-template-columns: minmax(0,1fr); }
+  .route-result-map { min-height: 260px; }
+}
+@media (max-width: 350px) {
+  .chat-header { grid-template-columns: minmax(0,1fr); }
+  .chat-header .header-actions { flex-direction: row; justify-content: flex-start; }
+  .quick-actions { gap: 6px; }
+  .quick-actions button { font-size: 11px; }
+}
+
+/* =========================================================
+   MOBILE CHAT + HOTEL/MAP CONTENT SAFETY PATCH
+   CSS only: no changes to search, booking, or map logic.
+   ========================================================= */
+@media (max-width: 650px) {
+  html, body, #root { max-width: 100%; overflow-x: hidden; }
+  .app, .chat-container, .messages, .message-row,
+  .message.assistant, .message.user { min-width: 0; }
+
+  /* Long hotel addresses, links, and third-party content cannot
+     force the chat bubble wider than the phone viewport. */
+  .message.assistant { overflow-wrap: anywhere; }
+  .message.assistant img,
+  .message.assistant video,
+  .message.assistant iframe { display: block; max-width: 100%; height: auto; }
+  .message.assistant iframe { min-height: 240px; }
+
+  /* Embedded map containers should stay inside the message width. */
+  .message.assistant .leaflet-container,
+  .message.assistant .gm-style,
+  .message.assistant .gm-style > div,
+  .route-result-map .leaflet-container {
+    max-width: 100%;
+  }
+  .message.assistant .leaflet-container,
+  .route-result-map .leaflet-container { width: 100%; }
+
+  /* Tables remain usable without stretching the whole chat. */
+  .message.assistant table { display: block; max-width: 100%; overflow-x: auto; }
+  .message.assistant pre { max-width: 100%; overflow-x: auto; }
+  .message.assistant li { min-width: 0; overflow-wrap: anywhere; }
+
+  .route-result-card { width: 100%; min-width: 0; }
+  .route-result-details { min-width: 0; }
+  .route-result-map { width: 100%; min-width: 0; min-height: 280px; }
+}
+
+
+
+/* Mobile hotel details above Google Map */
+@media (max-width: 600px) {
+  .message-row.assistant-row:has(> .message.assistant + div) {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+  }
+
+  .message-row.assistant-row:has(> .message.assistant + div)
+  > .message.assistant,
+  .message-row.assistant-row:has(> .message.assistant + div)
+  > .message.assistant + div {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box;
+  }
+}
+
+
+/* Mobile-only hotel results layout. Desktop styles remain unchanged. */
+@media (max-width: 600px) {
+  .message-row.assistant-row.hotel-results-row {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+  }
+
+  .message-row.assistant-row.hotel-results-row > .message.assistant,
+  .message-row.assistant-row.hotel-results-row > .message.assistant + div {
+    display: block;
+    flex: none;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box;
+  }
+}
+

@@ -82,7 +82,7 @@ function ProviderRegistration() {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8001/transport/providers",
+        "http://127.0.0.1:8011/transport/providers",
         {
           method: "POST",
           headers: {

@@ -20,3 +20,33 @@ backend/old_chat.py
 backend/routers/chat_backup_before_transport.py
 backend/test_hotel_mcp_client.py
 backend/test_transport_mcp.py
+
+# Environment secrets
+.env.*
+!.env.example
+*.pem
+*.key
+*.dump
+
+# Project backups and local data
+project-backups/
+*.dump
+*.backup*
+*backup*
+*.sqlite
+*.sqlite3
+*.db
+
+# Local payment testing files
+payhere_sandbox_test.html
+payhere_callback_proxy.py
+
+# Local development snapshots and review data
+*.before_*
+*.before-*
+*.csv
+hotel_geocoding_cache.json
+hotels_without_gps_ids.txt
+
+# Local Docker configuration with database credentials
+docker-compose.yml
